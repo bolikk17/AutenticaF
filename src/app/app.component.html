@@ -1,7 +1,7 @@
 <!-- //TODO: Create separated component for map -->
 
 <div class="header-container">
-  <div class="text">
+  <div [class.red-text]="!(this.loading$ | async)" class="text">
     {{ 
       (this.serverIsDown$ | async ) ? 'Server is down, plz start server and refresh the page' : (
         (this.loading$ | async ) ? 'Server is loading data...' : 'Click somewhere on the map to set markers'
