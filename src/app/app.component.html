@@ -8,7 +8,7 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <div class="header-container">
   <div class="text">
-    {{ ((this.loading$ | async ) === true) ? 'Loading' : 'Click somewhere on map to set markers' }} 
+    {{ (this.loading$ | async ) ? 'Server is loading data...' : 'Click somewhere on the map to set markers' }} 
   </div>
 </div>
 <div class="map-container">
