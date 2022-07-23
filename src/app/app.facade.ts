@@ -24,7 +24,12 @@ export class AppFacade {
       )
       .subscribe({
         next: (res) => this.appState.setExtremeLocations(res),
-        error: (err) => this.appState.setExtremeLocations(undefined),
+        error: (err) => {
+          if(err.status === 0) {
+            this.appState.setServerIsDown(true)
+          }
+          this.appState.setExtremeLocations(undefined)
+        },
       })
         
     return this.appState.getExtremeLocations();

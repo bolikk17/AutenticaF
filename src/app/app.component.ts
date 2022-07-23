@@ -10,7 +10,6 @@ import { ExtremeLocationsDto, LocationDto } from './Entities/Location';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-//TODO: Create separated component for map
 export class AppComponent implements AfterViewInit {
 
   constructor(
@@ -21,6 +20,7 @@ export class AppComponent implements AfterViewInit {
   private map!: L.Map;
   public locations$: BehaviorSubject<ExtremeLocationsDto | undefined> = this.appFacade.getLocations();
   public loading$: BehaviorSubject<boolean> = this.appState.getLoading();
+  public serverIsDown$: BehaviorSubject<boolean> = this.appState.getServerIsDown();
 
   ngAfterViewInit(): void {
     this.initMap();
